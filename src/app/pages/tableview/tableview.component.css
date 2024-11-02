@@ -13,6 +13,28 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.createProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 60%;
+}
+
+.createProject h2 {
+    color: blue;
+    font-size: 25px;
+}
+
+.createProject form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
 .addProject {
     color: white;
     border-radius: 6px;
@@ -25,9 +47,23 @@ h1 {
 .project {
     margin-top: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     width: 80%;
+    gap: 15px;
+    place-content: center;
+}
+
+.project h2 {
+    margin: 0 auto;
+    color: darkblue;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
     gap: 15px;
 }
 

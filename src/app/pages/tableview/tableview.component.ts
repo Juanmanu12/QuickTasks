@@ -3,17 +3,19 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { RxjsService } from '../../services/rxjs.service';
 import { Observable } from 'rxjs';
 import { Project } from '../../services/rxjs.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tableview',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, CommonModule],
   templateUrl: './tableview.component.html',
   styleUrl: './tableview.component.css'
 })
 export class TableviewComponent implements OnInit{
 
   projects$!: Observable<Project[]>;
+  
 
   constructor(private rxjsService: RxjsService) {}
 
@@ -21,15 +23,20 @@ export class TableviewComponent implements OnInit{
     this.projects$ = this.rxjsService.getProjects();
   }
   
-  generateProject(project: Project): void {
-    this.rxjsService.createProject(project);
+  generateProject(tittle: String): void {
+    const newProject: Project = {
+      id: Date.now(),
+      tittle,
+      tasks: [],
+    }
+    this.rxjsService.createProject(newProject);
   }
 
   editProject(project: Project): void {
     this.rxjsService.updateProject(project);
   }
 
-  deleteProject(projectId: string): void {
+  deleteProject(projectId: number): void {
     this.rxjsService.deleteProject(projectId);
   }
 }

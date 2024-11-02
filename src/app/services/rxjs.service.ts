@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Project {
-  id: String,
+  id: Number,
   tittle: String,
   tasks: Task[]
 }
 
 export interface Task {
-  id: String,
+  id: Number,
   tittle: String, 
   description: String
 }
@@ -39,7 +39,7 @@ export class RxjsService {
     this.projectsSubject.next(currentProjects);
   }
 
-  deleteProject(projectId: string): void {
+  deleteProject(projectId: number): void {
     const updatedProjects = this.projectsSubject
       .getValue()
       .filter(project => project.id !== projectId);

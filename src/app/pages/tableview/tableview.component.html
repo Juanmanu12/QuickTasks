@@ -1,21 +1,28 @@
 <app-header/>
 <main>
     <h1>Crea y maneja tus proyectos en Quick Tasks de manera fácil y eficiente!</h1>
-    <button class="addProject">Crea un proyecto</button>
-
+    <div class="createProject">
+        <h2>Crea un nuevo proyecto</h2>
+        <form (ngSubmit)="generateProject(newProjectTittle.value)">
+            <input #newProjectTittle type="text" placeholder="Agrega el título de tu projecto" required>
+        <button class="addProject">Crea un proyecto</button>
+        </form>
+    </div>
     <div class="project">
-        <h2></h2>
-        <div class="pending">
-            <h3>Pendientes</h3>
-            <button class="addTask">Agregar</button>
-        </div>
-        <div class="inProgress">
-            <h3>En progreso</h3>
-            <button class="addTask">Agregar</button>
-        </div>
-        <div class="done">
-            <h3>Done</h3>
-            <button class="addTask">Agregar</button>
-        </div>
+        <h2>Titulo del Proyecto</h2>
+        <div class="cards">
+            <div class="pending">
+                <h3>Pendientes</h3>
+                <button class="addTask">Agregar</button>
+            </div>
+            <div class="inProgress">
+                <h3>En progreso</h3>
+                <button class="addTask">Agregar</button>
+            </div>
+            <div class="done">
+                <h3>Done</h3>
+                <button class="addTask">Agregar</button>
+            </div>
+    </div>
     </div>
 </main>
